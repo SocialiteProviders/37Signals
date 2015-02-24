@@ -65,17 +65,10 @@ class Provider extends AbstractProvider implements ProviderInterface
     /**
      * {@inheritdoc}
      */
-    protected function buildAuthUrlFromBase($url, $state)
+    protected function getCodeFields($state)
     {
-        $session = $this->request->getSession();
-
-        return $url.'?'.http_build_query([
-            'type'          => 'web_server',
-            'client_id'     => $this->clientId,
-            'redirect_uri'  => $this->redirectUrl,
-            'scope'         => $this->formatScopes($this->scopes, $this->scopeSeparator),
-            'state'         => $state,
-            'response_type' => 'code',
-        ], '', '&', $this->encodingType);
+        return array_merge(parent::getCodeFields($state), [
+            'type' => 'web_server',
+        ]);
     }
 }

@@ -12,7 +12,9 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://launchpad.37signals.com/authorization/new', $state);
+        return $this->buildAuthUrlFromBase(
+            'https://launchpad.37signals.com/authorization/new', $state
+        );
     }
 
     /**
@@ -28,7 +30,8 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://launchpad.37signals.com/authorization.json', [
+        $response = $this->getHttpClient()->get(
+            'https://launchpad.37signals.com/authorization.json', [
             'headers' => [
                 'Authorization' => 'Bearer '.$token,
             ],
@@ -43,11 +46,9 @@ class Provider extends AbstractProvider implements ProviderInterface
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id'       => $user['id'],
-            'nickname' => null,
-            'name'     => $user['first_name'].' '.$user['last_name'],
-            'email'    => $user['email_address'],
-            'avatar'   => null,
+            'id' => $user['id'], 'nickname' => null,
+            'name' => $user['first_name'].' '.$user['last_name'],
+            'email' => $user['email_address'], 'avatar' => null,
         ]);
     }
 
@@ -57,8 +58,7 @@ class Provider extends AbstractProvider implements ProviderInterface
     protected function getTokenFields($code)
     {
         return array_merge(parent::getTokenFields($code), [
-            'type'       => 'web_server',
-            'grant_type' => 'authorization_code',
+            'type' => 'web_server', 'grant_type' => 'authorization_code',
         ]);
     }
 

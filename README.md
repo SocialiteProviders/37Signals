@@ -8,4 +8,4 @@
 
 ## Documentation
 
-Full documentation for using this provider can be found at [37Signals Documentation](http://socialiteproviders.github.io/providers/37Signals/)
+Full documentation for using this provider can be found at [37Signals Documentation](http://socialiteproviders.github.io/providers/37signals/)

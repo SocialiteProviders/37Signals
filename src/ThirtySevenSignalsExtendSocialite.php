@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\ThirtySevenSignals;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;

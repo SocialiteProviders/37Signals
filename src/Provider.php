@@ -38,7 +38,8 @@ class Provider extends AbstractProvider implements ProviderInterface
             ],
         ]);
 
-        return json_decode($response->getBody()->getContents(), true)['identity'];
+
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -47,9 +48,9 @@ class Provider extends AbstractProvider implements ProviderInterface
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id' => $user['id'], 'nickname' => null,
-            'name' => $user['first_name'].' '.$user['last_name'],
-            'email' => $user['email_address'], 'avatar' => null,
+            'id' => $user['identity']['id'], 'nickname' => null,
+            'name' => $user['identity']['first_name'].' '.$user['identity']['last_name'],
+            'email' => $user['identity']['email_address'], 'avatar' => null,
         ]);
     }
 

@@ -1,7 +1,13 @@
 {
-    "name": "socialiteproviders/providers",
-    "description": "Collection of all OAuth2 Providers for Laravel Socialite",
+    "name": "socialiteproviders/37signals",
+    "description": "37Signals OAuth2 Provider for Laravel Socialite",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@brianfaust.de"
+        }
+    ],
     "require": {
         "php": "^7.2",
         "ext-json": "*",
@@ -9,15 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SocialiteProviders\\": "src/"
+            "SocialiteProviders\\ThirtySevenSignals\\": ""
         }
-    },
-    "require-dev": {
-        "symplify/monorepo-builder": "^6.1",
-        "phpunit/phpunit": "^8.0"
-    },
-    "scripts": {
-        "test": "phpunit",
-        "test:ci": "phpunit --coverage-clover build/logs/clover.xml"
     }
 }
